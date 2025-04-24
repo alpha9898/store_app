@@ -7,11 +7,12 @@ A Flutter application for browsing and managing products with ratings, built as 
 - View product ratings and descriptions
 - Modular code structure for easy extension
 - Models and services for clean data management
+- Fetch all products from a remote API using `AllProductService`
 
 ## Project Structure
 
 - **lib/models/**: Contains data models such as `ProductModel` and `Rating`, with serialization/deserialization logic.
-- **lib/services/**: Contains services for fetching and managing product data from APIs.
+- **lib/services/**: Contains services for fetching and managing product data from APIs, including `AllProductService` for retrieving all products.
 - **lib/main.dart**: Entry point of the app, sets up the main UI and navigation.
 
 ## Getting Started
@@ -34,6 +35,14 @@ A Flutter application for browsing and managing products with ratings, built as 
 
 ```dart
 import 'package:store_app/models/product_model.dart';
+import 'package:store_app/services/get_all_product_service.dart';
+
+final allProductService = AllProductService();
+
+void fetchProducts() async {
+  List<ProductModel> products = await allProductService.getAllProducts();
+  print(products.first.title);
+}
 
 final product = ProductModel.fromJson(jsonData);
 print(product.title);
