@@ -8,7 +8,7 @@ A Flutter application for browsing and managing products with ratings, built as 
 - Modular code structure for easy extension
 - Models and services for clean data management
 - Fetch all products from a remote API using `AllProductService`
-- Fetch products by category using `CatagoriesService`
+Hey, Cortana. Hey, Cortana. Hey, Cortana. - Fetch products by category using `CatagoriesService`
 - Fetch all categories using `AllCatagoriesService`
 
 ## Project Structure
@@ -59,3 +59,42 @@ print(product.rating.rate);
 
 ## License
 MIT License
+
+
+# API Helper
+
+The `Api` class in `lib/helper/api.dart` provides methods to make HTTP requests to your backend or third-party APIs.
+
+## Usage
+
+```dart
+import 'package:store_app/helper/api.dart';
+
+final api = Api();
+
+// GET request
+final data = await api.get(url: 'https://fakestoreapi.com/products');
+
+// POST request with optional token
+final response = await api.post(
+  url: 'https://fakestoreapi.com/products',
+  body: {
+    'title': 'test product',
+    'price': '13.5',
+    'description': 'lorem ipsum set',
+    'image': 'https://i.pravatar.cc',
+    'category': 'electronic',
+  },
+  token: 'your_bearer_token', // or null if not needed
+);
+
+// PUT request (note: currently uses POST under the hood)
+final putResponse = await api.put(
+  url: 'https://fakestoreapi.com/products/1',
+  body: {
+    'title': 'updated product',
+    // other fields...
+  },
+  token: 'your_bearer_token',
+);
+```
