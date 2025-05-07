@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          'New Trending',
+          'New Trend',
           style: TextStyle(
             color: Colors.black,
           ),
