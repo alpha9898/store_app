@@ -28,6 +28,73 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+      body: Center(
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              height: 130,
+              width: 220,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    blurRadius: 40,
+                    spreadRadius: 0,
+                    offset: Offset(10, 10),
+                  ),
+                ],
+              ),
+              child: Card(
+                elevation: 10,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Handbag lv',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            r'$225',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              right: 32,
+              bottom: 65,
+              child: Image.network(
+                'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+                height: 100,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
